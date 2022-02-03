@@ -1,3 +1,4 @@
+
 local admins = {
     "Nanderez",
     "BOBLOXv0",
@@ -17,17 +18,9 @@ local function isAdmin(player)
    return false
 
 end
-
-game.Players.PlayerAdded:Connect(function(plr)
-    
-    plr.CharacterAdded:Connect(function()
-        
-        if isAdmin(plr) then
-           
-           plr:WaitForChild("Character").Humanoid.DisplayName = "[⭐] "..plr.DisplayName
-            
-        end
-        
-    end)
-    
-end)
+for i,v in pairs(game.Players:GetChildren()) do
+    print(v.Name)
+   if isAdmin(v) then
+           v.Character.Humanoid.DisplayName = "[⭐] "..v.DisplayName
+    end 
+end
