@@ -1,2 +1,33 @@
-asdasd123124565464
-12
+local admins = {
+    "Nanderez",
+    "BOBLOXv0",
+    "0_lemontrain",
+    "freegirl678",
+    "UltrasGroupHolder"
+ }
+
+local function isAdmin(player)
+
+   for _, v in pairs(admins) do
+       if v == player.Name then
+           return true
+       end
+   end
+
+   return false
+
+end
+
+game.Players.PlayerAdded:Connect(function(plr)
+    
+    plr.CharacterAdded:Connect(function()
+        
+        if isAdmin(plr) then
+           
+           plr:WaitForChild("Character").Humanoid.DisplayName = "[⭐] "..plr.DisplayName
+            
+        end
+        
+    end)
+    
+end)
